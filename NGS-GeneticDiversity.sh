@@ -104,15 +104,6 @@ bcftools query -f '%CHROM\n'  SNPs.mergedAll.vcf.gz
 ##adjusting NJ Tree
 #vcftools --vcf SNPs.merged@K7Final.vcf --remove takeout.txt --recode --out SNPs.merged@K7NJ 
 
-### For Bimbo New dist matrix for another file
-#plink --vcf bimbo312RENAMED_Fil.vcf --make-bed --double-id --out bimbo312_Fil 
-#plink --bfile bimbo312_Fil --distance-matrix --out Bimb
-# Ensure vcftools is installed and available
-vcftools --vcf bimbo312RENAMED_Fil.vcf --remove K7data_na.txt --recode --out bimboK3
-##PCA analysis STEP1 (LD thining)
-plink --vcf bimboK3.recode.vcf --double-id --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out bimboK3SNP
-##PCA analysis STEP 2
-plink --vcf bimboK3.recode.vcf --double-id --set-missing-var-ids @:# --extract bimboK3SNP.prune.in --pca --make-bed --out bimboK3SNP.prune_pca
-##For PCA plot (move to R/Rstudio)
+
 
 
